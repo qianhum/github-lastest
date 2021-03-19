@@ -1,0 +1,46 @@
+{
+  repository(owner: "spf13", name: "cobra") {
+    releases(last: 1) {
+      nodes {
+        name
+        createdAt
+        updatedAt
+      }
+    }
+    refs(refPrefix: "refs/tags/", last: 1) {
+      nodes {
+        name
+        target {
+          ... on Commit {
+            oid
+            authoredDate
+            committedDate
+            pushedDate
+          }
+        }
+      }
+    }
+    defaultBranchRef {
+      name
+        target {
+        ... on Commit {
+          oid
+          authoredDate
+          committedDate
+          pushedDate
+        }
+      }
+    }
+    ref(qualifiedName: "master") {
+      name
+      target {
+        ... on Commit {
+          oid
+          authoredDate
+          committedDate
+          pushedDate
+        }
+      }
+    }
+  }
+}
